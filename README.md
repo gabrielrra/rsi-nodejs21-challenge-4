@@ -1,38 +1,27 @@
-<p align="center">
-  <img alt="Rocketseat Education" src="https://avatars.githubusercontent.com/u/69590972?s=200&v=4" width="100px" />
-</p>
+# Desafio Node.js da Rocketseat 🚀
 
-<p align="center">
-  <img src="https://img.shields.io/static/v1?label=Rocketseat&message=Education&color=8257e5&labelColor=202024" alt="Rocketseat Project" />
-  <a href="LICENSE"><img  src="https://img.shields.io/static/v1?label=License&message=MIT&color=8257e5&labelColor=202024" alt="License"></a>
-</p>
+Bem-vindo ao meu projeto do Desafio 4 Node.js do curso da Rocketseat!
 
+Neste projeto, eu desenvolvi todo o código da API para que os testes completassem com sucesso.
 
-## 💻 Projeto
+## Como executar
 
-ignite-template-introducao-ao-SOLID
+1. Clone este repositório.
+2. Instale as dependências usando `npm install`.
+3. Execute o servidor local com `npm run dev`.
 
-## 📝 Licença
+## Testes automatizados
 
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Para rodar os testes automatizados, execute o seguinte comando:
 
----
+```sh
+npm test
 
-<p align="center">
-  Feito com 💜 by Rocketseat
-</p>
+```
 
+## Tecnologias utilizadas
 
-<!--START_SECTION:footer-->
-
-<br />
-<br />
-
-<p align="center">
-  <a href="https://discord.gg/rocketseat" target="_blank">
-    <img align="center" src="https://storage.googleapis.com/golden-wind/comunidade/rodape.svg" alt="banner"/>
-  </a>
-</p>
-
-<!--END_SECTION:footer-->
-
+- Node.js
+- Express.js
+- UUID para geração de IDs únicos
+- Supertest para testes automatizados
