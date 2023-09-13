@@ -11,8 +11,9 @@ class ListAllUsersUseCase {
   }
 
   execute({ user_id }: IRequest): User[] {
-    const user = new User();
-    return [user];
+    const user = this.usersRepository.findById(user_id);
+    if (!user.admin) throw new Error("FORBIDDEN_ACCESS");
+    return this.usersRepository.list();
   }
 }
 

@@ -23,6 +23,7 @@ describe("UsersRepository", () => {
     expect(validate(user.id)).toBe(true);
     expect(user.created_at).toBeInstanceOf(Date);
     expect(user.updated_at).toBeInstanceOf(Date);
+    usersRepository.delete(user.id);
   });
 
   it("should be able to list all users", () => {
@@ -52,6 +53,7 @@ describe("UsersRepository", () => {
     expect(validate(findUser.id)).toBe(true);
     expect(findUser.created_at).toBeInstanceOf(Date);
     expect(findUser.updated_at).toBeInstanceOf(Date);
+    usersRepository.delete(user.id);
   });
 
   it("should be able to find user by e-mail address", () => {
@@ -70,6 +72,7 @@ describe("UsersRepository", () => {
     expect(validate(findUser.id)).toBe(true);
     expect(findUser.created_at).toBeInstanceOf(Date);
     expect(findUser.updated_at).toBeInstanceOf(Date);
+    usersRepository.delete(user.id);
   });
 
   it("should be able to turn an user as admin", () => {

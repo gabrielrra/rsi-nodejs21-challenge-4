@@ -4,8 +4,16 @@ class User {
   id: string;
   name: string;
   email: string;
-  created_at: string;
-  updated_at: string;
+  admin: boolean;
+  created_at: Date;
+  updated_at: Date;
+
+  constructor() {
+    this.id = uuidV4();
+    this.created_at = new Date();
+    this.updated_at = new Date();
+    this.admin = false;
+  }
 }
 
 export { User };

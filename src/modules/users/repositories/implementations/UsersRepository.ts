@@ -1,9 +1,10 @@
+import { v4 as uuidV4 } from "uuid";
+
 import { User } from "../../model/User";
-import { IUsersRepository, ICreateUserDTO } from "../IUsersRepository";
+import { ICreateUserDTO, IUsersRepository } from "../IUsersRepository";
 
 class UsersRepository implements IUsersRepository {
   private users: User[];
-
   private static INSTANCE: UsersRepository;
 
   private constructor() {
@@ -19,28 +20,54 @@ class UsersRepository implements IUsersRepository {
   }
 
   create({ name, email }: ICreateUserDTO): User {
+    const existingUser = this.findByEmail(email);
+
+    if (existingUser) throw new Error("USER_ALREADY_EXISTS");
     const user = new User();
+
+    Object.assign(user, {
+      name,
+      email,
+    });
+
+    this.users.push(user);
+
     return user;
   }
 
   findById(id: string): User | undefined {
-    const user = new User();
+    const user = this.users.find((user) => user.id === id);
+
+    if (!user) throw new Error("USER_NOT_FOUND");
+
     return user;
   }
 
   findByEmail(email: string): User | undefined {
-    const user = new User();
+    const user = this.users.find((user) => user.email === email);
     return user;
   }
 
   turnAdmin(receivedUser: User): User {
-    const user = new User();
-    return user;
+    const userIndex = this.users.findIndex(
+      (user) => user.id === receivedUser.id
+    );
+
+    if (userIndex === -1) throw new Error("USER_NOT_FOUND");
+
+    this.users[userIndex].admin = true;
+
+    return this.users[userIndex];
   }
 
   list(): User[] {
-    const user = new User();
-    return [user];
+    return this.users;
+  }
+
+  delete(user_id: string): void {
+    this.findById(user_id);
+    const userIndex = this.users.findIndex((user) => user.id === user_id);
+    this.users.splice(userIndex);
   }
 }
 

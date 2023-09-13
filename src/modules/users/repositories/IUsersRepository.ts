@@ -11,6 +11,7 @@ interface IUsersRepository {
   findByEmail(email: string): User | undefined;
   turnAdmin(user: User): User;
   list(): User[];
+  delete(user_id: string): void;
 }
 
 export { IUsersRepository, ICreateUserDTO };
