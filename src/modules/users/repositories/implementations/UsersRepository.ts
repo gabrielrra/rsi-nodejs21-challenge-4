@@ -23,6 +23,10 @@ class UsersRepository implements IUsersRepository {
     const existingUser = this.findByEmail(email);
 
     if (existingUser) throw new Error("USER_ALREADY_EXISTS");
+
+    if (!name) throw new Error("NAME_IS_NECESSSARY");
+    if (!email) throw new Error("EMAIL_IS_NECESSSARY");
+
     const user = new User();
 
     Object.assign(user, {
